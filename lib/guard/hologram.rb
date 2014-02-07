@@ -5,7 +5,11 @@ require "guard/plugin"
 module Guard
   class Hologram < Plugin
     include HologramVersion
+    attr_reader :options
 
+    DEFAULT_OPTIONS = {
+      config_path: "hologram_config.yml"
+    }
     # Initializes a Guard plugin.
     # Don't do any work here, especially as Guard plugins get initialized even if they are not in an active group!
     #
@@ -16,6 +20,7 @@ module Guard
     #
     def initialize(options = {})
       super
+      @options = DEFAULT_OPTIONS.merge(options)
     end
 
     # Called once when Guard starts. Please override initialize method to init stuff.
@@ -50,7 +55,7 @@ module Guard
     # @return [Object] the task result
     #
     def run_all
-      system *%w(bundle exec hologram config/hologram_config.yml) or throw :task_has_failed
+      system *"bundle exec hologram #{options[:config_path]}".split or throw :task_has_failed
     end
 
     # Default behaviour on file(s) changes that the Guard plugin watches.
