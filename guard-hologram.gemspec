@@ -6,11 +6,11 @@ require 'guard/hologram/version'
 Gem::Specification.new do |spec|
   spec.name          = "guard-hologram"
   spec.version       = Guard::Hologram::VERSION
-  spec.authors       = ["Ken Mayer"]
-  spec.email         = ["pair+ken@pivotallabs.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.authors       = ["Ken Mayer", "Greg Cobb"]
+  spec.email         = ["ken@bitwrangler.com"]
+  spec.description   = %q{Guard plugin for the Hologram gem (https://github.com/trulia/hologram)}
+  spec.summary       = %q{Guard plugin for the Hologram gem}
+  spec.homepage      = "https://github.com/kmayer/guard-hologram"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
 end
