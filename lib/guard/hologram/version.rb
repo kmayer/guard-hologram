@@ -1,5 +1,5 @@
 module Guard
-  module Hologram
+  module HologramVersion
     VERSION = "0.0.1"
   end
 end

@@ -4,6 +4,7 @@ require "guard/plugin"
 
 module Guard
   class Hologram < Plugin
+    include HologramVersion
 
     # Initializes a Guard plugin.
     # Don't do any work here, especially as Guard plugins get initialized even if they are not in an active group!
@@ -49,6 +50,7 @@ module Guard
     # @return [Object] the task result
     #
     def run_all
+      system *%w(bundle exec hologram config/hologram_config.yml) or throw :task_has_failed
     end
 
     # Default behaviour on file(s) changes that the Guard plugin watches.
@@ -57,6 +59,7 @@ module Guard
     # @return [Object] the task result
     #
     def run_on_changes(paths)
+      run_all
     end
 
     # Called on file(s) additions that the Guard plugin watches.
@@ -66,6 +69,7 @@ module Guard
     # @return [Object] the task result
     #
     def run_on_additions(paths)
+      run_all
     end
 
     # Called on file(s) modifications that the Guard plugin watches.
@@ -75,6 +79,7 @@ module Guard
     # @return [Object] the task result
     #
     def run_on_modifications(paths)
+      run_all
     end
 
     # Called on file(s) removals that the Guard plugin watches.
