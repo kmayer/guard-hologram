@@ -1,12 +1,12 @@
 # Guard::Hologram
 
-TODO: Write a gem description
+Guard plugin for the [https://github.com/trulia/hologram] gem
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'guard-hologram'
+    gem 'guard-hologram', :require => false
 
 And then execute:
 
@@ -16,9 +16,29 @@ Or install it yourself as:
 
     $ gem install guard-hologram
 
+## Setup
+
+    guard init
+    
 ## Usage
 
-TODO: Write usage instructions here
+    bundle exec guard
+    
+## Configuration
+
+    | Option      | Definition                               | Default             |
+    |-------------|------------------------------------------|---------------------|
+    | config_path | relative path to your configuration file | hologram_config.yml |
+    
+### Sample Guardfile
+
+```ruby
+guard "hologram", config_path: "hologram.yml" do
+  watch(%r{app/assets/stylesheets/.*css})
+  watch(%r{app/views/docs/styleguide/doc_assets/.+})
+  watch('hologram.yml')
+end
+```
 
 ## Contributing
 
