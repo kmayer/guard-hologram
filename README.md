@@ -1,6 +1,6 @@
 # Guard::Hologram
 
-Guard plugin for the [https://github.com/trulia/hologram] gem
+Guard plugin for the https://github.com/trulia/hologram gem
 
 ## Installation
 
